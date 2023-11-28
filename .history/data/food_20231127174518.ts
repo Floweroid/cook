@@ -6,8 +6,8 @@ async function getStuffByType(type: string): Promise<StuffItem[]> {
   const stuffs = await fetchStuffs()
 
   return stuffs
-    .filter((stuff: { type: string }) => stuff.type === type)
-    .map((stuff: StuffItem) => ({ name: stuff.name, emoji: stuff.emoji }))
+    .filter(stuff => stuff.type === type)
+    .map(stuff => ({ name: stuff.name, emoji: stuff.emoji }))
 }
 // stuffs
 export const vegetable: StuffItem[] = await getStuffByType('vegi')

@@ -1,19 +1,6 @@
 import type { StuffItem } from '../types'
 import { fetchStuffs } from '~/api'
 
-// Function to filter and map stuff items based on their type
-async function getStuffByType(type: string): Promise<StuffItem[]> {
-  const stuffs = await fetchStuffs()
-
-  return stuffs
-    .filter((stuff: { type: string }) => stuff.type === type)
-    .map((stuff: StuffItem) => ({ name: stuff.name, emoji: stuff.emoji }))
-}
-// stuffs
-export const vegetable: StuffItem[] = await getStuffByType('vegi')
-export const meat: StuffItem[] = await getStuffByType('meat')
-export const staple: StuffItem[] = await getStuffByType('staple')
-
 /**
  * 素菜
  */
@@ -81,75 +68,86 @@ export const staple: StuffItem[] = await getStuffByType('staple')
 //   },
 // ]
 
+export async function getVegetables() {
+  const stuffs = await fetchStuffs()
+
+  // Assuming that stuffs is an array of objects with 'type' property as 'vegi'
+  return stuffs
+    .filter(stuff => stuff.type === 'vegi')
+    .map(stuff => ({ name: stuff.name, emoji: stuff.emoji }))
+}
+
+export const vegetable: StuffItem[] = await getVegetables()
+
 // export const vegetable1: StuffItem[] = fetchVegies()
 
 /**
  * 荤菜
  */
-// export const meat: StuffItem[] = [
-//   {
-//     name: '午餐肉',
-//     emoji: '🥓',
-//   },
-//   {
-//     name: '香肠',
-//     emoji: '🌭',
-//   },
-//   {
-//     name: '腊肠',
-//     emoji: '🌭',
-//   },
-//   {
-//     name: '鸡肉',
-//     emoji: '🐤',
-//   },
-//   {
-//     name: '猪肉',
-//     emoji: '🐷',
-//   },
-//   {
-//     name: '鸡蛋',
-//     emoji: '🥚',
-//   },
-//   {
-//     name: '虾',
-//     emoji: '🦐',
-//   },
-//   {
-//     name: '牛肉',
-//     emoji: '🐮',
-//   },
-//   {
-//     name: '骨头',
-//     emoji: '🦴',
-//   },
-//   {
-//     name: '鱼（Todo）',
-//     emoji: '🐟',
-//   },
-// ]
+export const meat: StuffItem[] = [
+  {
+    name: '午餐肉',
+    emoji: '🥓',
+  },
+  {
+    name: '香肠',
+    emoji: '🌭',
+  },
+  {
+    name: '腊肠',
+    emoji: '🌭',
+  },
+  {
+    name: '鸡肉',
+    emoji: '🐤',
+  },
+  {
+    name: '猪肉',
+    emoji: '🐷',
+  },
+  {
+    name: '鸡蛋',
+    emoji: '🥚',
+  },
+  {
+    name: '虾',
+    emoji: '🦐',
+  },
+  {
+    name: '牛肉',
+    emoji: '🐮',
+  },
+  {
+    name: '骨头',
+    emoji: '🦴',
+  },
+  {
+    name: '鱼（Todo）',
+    emoji: '🐟',
+  },
+]
 
-// /**
-//  * 主食
-//  */
-// export const staple: StuffItem[] = [
-//   {
-//     name: '面食',
-//     emoji: '🍝',
-//   },
-//   {
-//     name: '面包',
-//     emoji: '🍞',
-//   },
-//   {
-//     name: '米',
-//     emoji: '🍚',
-//   },
-//   {
-//     name: '方便面',
-//     emoji: '🍜',
-//   },
-// ]
+/**
+ * 主食
+ */
+export const staple: StuffItem[] = [
+  {
+    name: '面食',
+    emoji: '🍝',
+  },
+  {
+    name: '面包',
+    emoji: '🍞',
+  },
+  {
+    name: '米',
+    emoji: '🍚',
+  },
+  {
+    name: '方便面',
+    emoji: '🍜',
+  },
+]
 
 export const tools: StuffItem[] = [
   {

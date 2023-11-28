@@ -7,7 +7,7 @@ async function getStuffByType(type: string): Promise<StuffItem[]> {
 
   return stuffs
     .filter((stuff: { type: string }) => stuff.type === type)
-    .map((stuff: StuffItem) => ({ name: stuff.name, emoji: stuff.emoji }))
+    .map((stuff: { name: string, emoji: string }) => ({ name: stuff.name, emoji: stuff.emoji }))
 }
 // stuffs
 export const vegetable: StuffItem[] = await getStuffByType('vegi')

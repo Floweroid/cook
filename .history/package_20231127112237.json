@@ -10,8 +10,7 @@
     "build": "npm run convert && cross-env VITE_APP_BUILD_TIME=$(date +%s) nuxi build",
     "build:static": "npm run convert && cross-env VITE_APP_BUILD_TIME=$(date +%s) nuxi generate",
     "convert": "tsx scripts/convert.ts",
-    "get": "tsx scripts/get.ts",
-    "dev": "cross-env VITE_APP_BUILD_TIME=$npm_package_timestamp nuxi dev --host",
+    "dev": "cross-env VITE_APP_BUILD_TIME=$(date +%s) nuxi dev --host",
     "dev:pwa": "VITE_PLUGIN_PWA=true nuxi dev",
     "generate": "nuxi generate",
     "start:generate": "npx serve .output/public",
@@ -25,7 +24,6 @@
   },
   "dependencies": {
     "axios": "^1.6.2",
-    "axios-mock-adapter": "^1.22.0",
     "dayjs": "^1.11.10",
     "vue-about-me": "^1.2.7"
   },
