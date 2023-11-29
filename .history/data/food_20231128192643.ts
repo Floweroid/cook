@@ -1,23 +1,27 @@
 import type { StuffItem } from '../types'
+import { fetchStuffs } from '~/api'
 
-// import { fetchStuffs } from '../api/index'
+// Function to filter and map stuff items based on their type
+async function getStuffByType(type: string): Promise<StuffItem[]> {
+  const stuffs = await fetchStuffs()
 
-// // Function to filter and map stuff items based on their type
-// async function getStuffByType(type: string): Promise<StuffItem[]> {
-//   const stuffs = await fetchStuffs()
+  return stuffs
+    .filter((stuff: { type: string }) => stuff.type === type)
+    .map((stuff: StuffItem) => ({ name: stuff.name, emoji: stuff.emoji }))
+}
 
-//   return stuffs
-//     .filter((stuff: { type: string }) => stuff.type === type)
-//     .map((stuff: StuffItem) => ({ name: stuff.name, emoji: stuff.emoji }))
-// }
 // stuffs
-// export async function vegetable(): Promise<StuffItem[]> { return await getStuffByType('vegi') }
-// export async function meat(): Promise<StuffItem[]> { return await getStuffByType('meat') }
-// export async function staple(): Promise<StuffItem[]> { return await getStuffByType('staple') }
+export async function vegetable(): Promise<StuffItem[]> {
+  return await getStuffByType('vegi')
+}
 
-// export const vegetable: StuffItem[] = await getStuffByType('vegi')
-// export const meat: StuffItem[] = await getStuffByType('meat')
-// export const staple: StuffItem[] = await getStuffByType('staple')
+export async function meat(): Promise<StuffItem[]> {
+  return await getStuffByType('meat')
+}
+
+export async function staple(): Promise<StuffItem[]> {
+  return await getStuffByType('staple')
+}
 
 /**
  * 素菜
@@ -86,11 +90,11 @@ import type { StuffItem } from '../types'
 //   },
 // ]
 
-// // export const vegetable1: StuffItem[] = fetchVegies()
+// export const vegetable1: StuffItem[] = fetchVegies()
 
-// /**
-//  * 荤菜
-//  */
+/**
+ * 荤菜
+ */
 // export const meat: StuffItem[] = [
 //   {
 //     name: '午餐肉',
@@ -134,9 +138,9 @@ import type { StuffItem } from '../types'
 //   },
 // ]
 
-// // /**
-// //  * 主食
-// //  */
+// /**
+//  * 主食
+//  */
 // export const staple: StuffItem[] = [
 //   {
 //     name: '面食',

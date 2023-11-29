@@ -1,4 +1,4 @@
-import { meat, staple, vegetable } from '~/api/index'
+import { meat, staple, vegetable } from '~/data/food'
 
 const foodItems = [...vegetable, ...meat, ...staple]
 const foodEmojiMap = new Map()

@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia'
 import type { StuffItem } from '~/types'
 import { tools } from '~/data/food'
 
-import {vegetable, meat, staple} from '~/api'
+import {getStuffByType} from '~/api'
 
 import { useEmojiAnimation } from '~/composables/animation'
 

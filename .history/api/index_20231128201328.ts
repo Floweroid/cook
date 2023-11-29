@@ -6,7 +6,7 @@ const apiUrl = 'http://127.0.0.1:8000/api/recipes/'
 
 export async function fetchRecipes() {
   const response = await axios.get(apiUrl)
-  // console.log(response.data)
+  console.log(response.data)
   return response.data
 }
 

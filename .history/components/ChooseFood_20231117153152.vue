@@ -1,13 +1,9 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
 import type { StuffItem } from '~/types'
-import { tools } from '~/data/food'
-
-import {vegetable, meat, staple} from '~/api'
+import { meat, staple, tools, vegetable } from '~/data/food'
 
 import { useEmojiAnimation } from '~/composables/animation'
-
-
 
 const rStore = useRecipeStore()
 const { curTool } = storeToRefs(rStore)

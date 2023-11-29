@@ -3,11 +3,13 @@ import { storeToRefs } from 'pinia'
 import type { StuffItem } from '~/types'
 import { tools } from '~/data/food'
 
-import {vegetable, meat, staple} from '~/api'
+import {getStuffByType} from '~/api'
 
 import { useEmojiAnimation } from '~/composables/animation'
 
-
+const vegetable: StuffItem[] = await getStuffByType('vegi')
+const meat: StuffItem[] = await getStuffByType('meat')
+const staple: StuffItem[] = await getStuffByType('staple')
 
 const rStore = useRecipeStore()
 const { curTool } = storeToRefs(rStore)
